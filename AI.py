@@ -119,23 +119,27 @@ if __name__ == '__main__':
 
 """
 # Description
-The CIFAR-10 dataset consists of 60,000 32x32 color images in 10 classes, with 6,000 images per class. The classes are: airplane, automobile, bird, cat, deer, dog, frog, horse, ship, and truck. This project uses a simple CNN model implemented in PyTorch to classify these images.
+The CIFAR-10 dataset consists of 60,000 32x32 color images in 10 classes, with 6,000 images per class. The classes are: airplane, automobile, bird, cat, deer, dog, frog, horse, ship, and truck. This project uses a simple Convolutional Neural Network (CNN) implemented in PyTorch to classify these images.
 
 # Task Description
 The goal of this project is to develop an image classification system using AI. The following steps were performed:
 
 1. Data Collection and Preprocessing:
    - The CIFAR-10 dataset was downloaded and preprocessed using transformations like resizing, normalization, and conversion to tensors.
+   - The dataset is split into training and testing sets, with 50,000 images for training and 10,000 images for testing.
 
 2. Model Training:
    - A Convolutional Neural Network (CNN) was designed and trained on the dataset.
    - Techniques like dropout were used to handle overfitting.
+   - The model was trained using the Adam optimizer and CrossEntropyLoss for 5 epochs.
 
 3. Evaluation:
-   - The model was evaluated using metrics like precision, recall, and F1-score.
+   - The model was evaluated on the test dataset using metrics like precision, recall, and F1-score.
+   - A classification report was generated to assess the model's performance.
 
 4. Testing on Unseen Data:
    - The model was tested on custom images to assess its real-world performance.
+   - A custom image preprocessing function was implemented to resize and normalize the input image before passing it to the model.
 
 5. Documentation:
    - Detailed documentation was provided, including the model architecture, training process, and usage instructions.
@@ -168,21 +172,17 @@ To run this project, you need to have Python and PyTorch installed. Follow these
    git clone https://github.com/your-username/cifar10-pytorch.git
    cd cifar10-pytorch
 Install dependencies:
-
 pip install torch torchvision numpy matplotlib scikit-learn pillow
+
 Download the CIFAR-10 dataset:
 The dataset will be automatically downloaded when you run the script for the first time.
 
 Testing on Custom Images
 You can test the model on custom images by providing the path to the image. The script will preprocess the image, pass it through the model, and predict the class.
 
-
+Example:
 custom_image_path = 'path/to/your/image.jpg'
 output = model(preprocess_custom_image(custom_image_path))
 _, predicted_class = torch.max(output, 1)
 print(f"Predicted Class: {class_names[predicted_class.item()]}")
-Preprocessing Steps:
-The image is resized to 32x32 pixels.
-
-It is normalized using the same parameters as the training data.
 """
